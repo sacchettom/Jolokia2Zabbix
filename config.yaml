@@ -1,0 +1,49 @@
+---
+- key: AdminServer
+  endpoint: http://127.0.0.1:8080/jolokia-war-1.3.6/
+
+# 'common' is a reserved key - listed requests will go to all endpoints
+- key: common
+  requests:
+  - mbean: java.lang:type=Memory
+    attribute: HeapMemoryUsage
+    path: used
+  - mbean: java.lang:type=Memory
+    attribute: HeapMemoryUsage
+    path: max
+  - mbean: java.lang:type=Memory
+    attribute: HeapMemoryUsage
+    path: committed
+  - mbean: java.lang:type=Memory
+    attribute: HeapMemoryUsage
+    path: init
+  - mbean: java.lang:type=Memory
+    attribute: NonHeapMemoryUsage
+    path: used
+  - mbean: java.lang:type=Memory
+    attribute: NonHeapMemoryUsage
+    path: max
+  - mbean: java.lang:type=Memory
+    attribute: NonHeapMemoryUsage
+    path: committed
+  - mbean: java.lang:type=Memory
+    attribute: NonHeapMemoryUsage
+    path: init
+  - mbean: java.lang:name=PS Old Gen,type=MemoryPool
+    attribute: Usage
+    path: used
+  - mbean: java.lang:name=PS Old Gen,type=MemoryPool
+    attribute: Usage
+    path: max
+  - mbean: java.lang:name=PS Survivor Space,type=MemoryPool
+    attribute: Usage
+    path: used
+  - mbean: java.lang:name=PS Survivor Space,type=MemoryPool
+    attribute: Usage
+    path: max
+  - mbean: java.lang:name=PS Eden Space,type=MemoryPool
+    attribute: Usage
+    path: used
+  - mbean: java.lang:name=PS Eden Space,type=MemoryPool
+    attribute: Usage
+    path: max
