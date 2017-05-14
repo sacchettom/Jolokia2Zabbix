@@ -1,9 +1,11 @@
 ---
+
 - key: AdminServer
   endpoint: http://127.0.0.1:8080/jolokia-war-1.3.6/
 
 # 'common' is a reserved key - listed requests will go to all endpoints
 - key: common
+  poll-frequency: 15
   requests:
   - mbean: java.lang:type=Memory
     attribute: HeapMemoryUsage
